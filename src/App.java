@@ -7,26 +7,28 @@ import java.util.ArrayList;
 
 public class App { 
     public static void main(String[] args) throws SQLException {
-
         Connection connection = null;
         DbHelper helper = new DbHelper();
         PreparedStatement statement = null;
         
         try{
             connection = helper.getConnection();
-            String sql ="delete from city where id  = ?";
+            String sql ="insert into city(Name,CountryCode,District,Population) values(?,?,?,?)";
             statement = connection.prepareStatement(sql);
-            statement.setInt(1, 4082);
+            statement.setString(1,"Duzce2");
+            statement.setString(2,"TUR");
+            statement.setString(3,"Turkey");
+            statement.setInt(4,4654248);
             statement.executeUpdate();
-            System.out.println("Deleted from database");
+            System.out.println("Added to database");
         }catch(SQLException exception){
             helper.showErrorMessage(exception);
             System.out.println(exception.getMessage());
         }finally{
             connection.close();
-        }
-
-    } 
+        }    
+    }    
+ 
     
     public static void selectDemo()throws SQLException {
     Connection connection = null;

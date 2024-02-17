@@ -15,10 +15,10 @@ public class App {
             connection = helper.getConnection();
             String sql ="insert into city(Name,CountryCode,District,Population) values(?,?,?,?)";
             statement = connection.prepareStatement(sql);
-            statement.setString(1,"Duzce2");
+            statement.setString(1,"Konya2");
             statement.setString(2,"TUR");
             statement.setString(3,"Turkey");
-            statement.setInt(4,4654248);
+            statement.setInt(4,468903904);
             statement.executeUpdate();
             System.out.println("Added to database");
         }catch(SQLException exception){
@@ -27,7 +27,7 @@ public class App {
         }finally{
             connection.close();
         }    
-    }    
+    }
  
     
     public static void selectDemo()throws SQLException {
